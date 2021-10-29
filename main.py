@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('index.html', apiStatus=apiStatus(), bTest=runBacktest(), apiPairHistory=apiWhitelist(),
+    return render_template('index.html', apiStatus=apiStatus(), bTest=runBacktest(), apiWhitelist=apiWhitelist(),
                            title="TestTitle")
 
 
@@ -66,28 +66,22 @@ def apiWhitelist():
     characters_to_remove = '{}[]"'
     for i in characters_to_remove:
         r = r.replace(i, '')
+    r = r.replace("whitelist:", "")
     r = r.split(',')
 
-    r_dict = dict()
     print(r)
-    for item in r:
-        print(item)
-        r_dict[item.split(':')[0]] = item.split(':')[1]
 
-    print(f"{type(r_dict)} + {len(r_dict)}")
-    print(r_dict)
-
-    return r_dict
+    return r
 
 
 def runBacktest():
     import subprocess
     result = subprocess.run(['ipconfig'], stdout=subprocess.PIPE).stdout.decode("unicode-escape")
-    print(f"{type(result)} + {(result)}")
+    print(f"{type(result)} + {result}")
     return result
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    runBacktest()
+    #runBacktest()
     app.run(host="0.0.0.0")

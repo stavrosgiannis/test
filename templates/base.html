@@ -24,16 +24,16 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid" id="top">
         <br>
-        <button class="" type="button" data-toggle="collapse" data-target="#trade_status" aria-expanded="false" aria-controls="trade_status">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#trade_status" aria-expanded="false" aria-controls="trade_status">
             Open trade status
         </button>
-        <button class="" type="button" data-toggle="collapse" data-target="#backtesting" aria-expanded="false" aria-controls="backtesting">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#backtesting" aria-expanded="false" aria-controls="backtesting">
             Backtesting
         </button>
-        <button class="" type="button" data-toggle="collapse" data-target="#logs" aria-expanded="false" aria-controls="logs">
-            Logs
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#whitelist" aria-expanded="false" aria-controls="whitelist">
+            Whitelist
         </button>
         <hr>
         <div class="collapse" id="trade_status">
@@ -71,16 +71,17 @@
                 </div>
             </form>
         </div>
-        <div class="collapse" id="logs">
+        <div class="collapse" id="whitelist">
             <div class="card">
                   <div class="card-header">
-                    Logs Output
+                    Whitelist
                   </div>
                   <div class="card-body">
-                    <p class="card-text">{% block pair_history %} {% endblock %}</p>
+                    <p class="card-text">{% block whitelist %} {% endblock %}</p>
                   </div>
                 </div>
         </div>
+        <a href="#top">To the top</a>
     </div>
 
     <!-- Optional JavaScript -->

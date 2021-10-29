@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block navName %} Freqtrade + REST_API {% endblock %}
+
+{% block content %}
+<h6 xmlns="http://www.w3.org/1999/html">{{title}}</h6>
+{% endblock %}
+
+{% block status %}
+    {% for key, value in apiStatus.items(): %}
+    <tr>
+        <th scope="row" id="{{loop.index}}">{{loop.index}}</th>
+        <td id="{{key}}">{{key}}</td>
+        <td id="value-{{key}}">{{value}}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+{% block backtesting %}
+    {{bTest}}
+{% endblock %}
+
+{% block pair_history %}
+    {{apiPairHistory}}
+{% endblock %}
